@@ -12,27 +12,33 @@
     <!-- Header Section -->
     <section class="container">
         <div class="header">
-            <div class="row align-items-center">
                 <!-- Logo -->
-                <div class="col-lg-4">
+                <div class="w-25 mx-auto">
                     <a href="#"><img src="./img/logo.png" alt="logo"></a>
                 </div>
                 <!-- Search Filed -->
-                <div class="col-lg-8">
+                <div class="w-50 mx-auto">
                     <div class="d-flex justify-content-end">
-                        <input class="w-50 rounded-pill px-3" type="search" id="search-filed">
+                        <input placeholder="Search your phone" class="w-75 rounded-pill px-3" type="search" id="search-filed">
                         <button onclick="searchBtn()" class="w-25 rounded-pill btn btn-outline-primary"></i>Search</button>
                     </div>
+                    <div class="mt-2 w-100 ms-2">
+                        <h4 id="error"></h4>
+                        <div style="display: none;" id="spanner" class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div>
                 </div>
-            </div>
         </div>
         <!-- Display Results -->
-        <div class="display-results mt-5">
-            <div id="details-result" class="w-50 mx-auto">
-
-            </div>
-            <div id="display-result" class="row row-cols-1 row-cols-md-3 g-4">
-                
+        <div id="search-result">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="display-result"></div>
+                </div>
+                <div class="col-4" id="display-details">
+                    
+                </div>
             </div>
         </div>
     </section>

@@ -59,7 +59,6 @@ const displayDetails = id =>{
     .then(res => res.json())
     .then(data => displayInfo(data.data))
 }
-displayDetails()
 const displayInfo = phoneId =>{
     console.log(phoneId)
     const displayInfo = document.getElementById('display-details')
@@ -70,8 +69,51 @@ const displayInfo = phoneId =>{
     <div class="card h-100">
         <img src="${phoneId.image}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h4 class="card-title">Phone name: ${phoneId.name}</h4>
-          <h6>Brand: ${phoneId.brand}</h6>
+          <h4 class="card-title">Phone: ${phoneId.name}</h4>
+          <h5>Brand: ${phoneId.brand}</h5>    
+          <h5>${phoneId.releaseDate ? phoneId.releaseDate:'No release date found'}</h5>
+          <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">${phoneId.name}' Full Specifications</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Chip: ${phoneId.mainFeatures.chipSet}</th>
+            </tr>
+            <tr>
+                <th scope="row">Display: ${phoneId.mainFeatures.displaySize}</th>
+            </tr>
+            <tr>
+                <th scope="row">Memory: ${phoneId.mainFeatures.memory}</th>
+            </tr>
+            <tr>
+                <th scope="row">Storage: ${phoneId.mainFeatures.storage}</th>
+            </tr>
+            <tr>
+                <th scope="row">Bluetooth: ${phoneId.others.Bluetooth ? phoneId.others.Bluetooth:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">GPS: ${phoneId.others.GPS ? phoneId.others.GPS:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">NFC: ${phoneId.others.NFC ? phoneId.others.NFC:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">Radio: ${phoneId.others.Radio ? phoneId.others.Radio:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">USB: ${phoneId.others.USB ? phoneId.others.USB:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">WLAN: ${phoneId.others.WLAN ? phoneId.others.WLAN:'No'}</th>
+            </tr>
+            <tr>
+                <th scope="row">Sensor: ${phoneId.mainFeatures.sensors[0] ? phoneId.mainFeatures.sensors[0]:''},${phoneId.mainFeatures.sensors[1] ? phoneId.mainFeatures.sensors[1]:''}, ${phoneId.mainFeatures.sensors[2] ? phoneId.mainFeatures.sensors[2]:''}, ${phoneId.mainFeatures.sensors[3] ? phoneId.mainFeatures.sensors[3]:''}, ${phoneId.mainFeatures.sensors[4] ? phoneId.mainFeatures.sensors[4]:''}, ${phoneId.mainFeatures.sensors[5] ? phoneId.mainFeatures.sensors[5]:''}</th>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     `
